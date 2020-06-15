@@ -14,7 +14,7 @@ class CoreDataDatabase{
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         return appDelegate.persistentContainer.viewContext
     }
-    
+    //save data to the database
     func saveTask(news:Article){
         let entity = NSEntityDescription.entity(forEntityName: "News", in: context)
         let taskObject = NSManagedObject(entity: entity!, insertInto: context) as! News
@@ -32,7 +32,8 @@ class CoreDataDatabase{
             print(error.localizedDescription)
         }
     }
-    
+    //fetch data from the database
+
     func fetchRequestData(completion: @escaping ([Article]?) -> Void){
         let fetchRequest:NSFetchRequest<News> = News.fetchRequest()
         do{
@@ -42,7 +43,7 @@ class CoreDataDatabase{
             print(error.localizedDescription)
         }
     }
-    
+    //delete data from database
     func deleteTask(news:Article){
         let entity = NSEntityDescription.entity(forEntityName: "News", in: context)
         let taskObject = NSManagedObject(entity: entity!, insertInto: context) as! News

@@ -8,6 +8,7 @@
 
 import UIKit
 
+//image caching
 class CashedImage: UIImageView {
     func set(imageUrl:String) {
         guard let url = URL(string: imageUrl) else {return}
